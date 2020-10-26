@@ -1,3 +1,6 @@
+import random
+
+
 def tab_multiplicar(numero):
     for x in range(1, 11):
         print(numero, " * ", x, " = ", numero * x)
@@ -150,23 +153,63 @@ def fichas_domino(ficha1, ficha2):
         print("As fichas non encaixan")
 
 
-def factoriais(lista_enteros):
+def factoriais(lista_enteros: []):
     for x in lista_enteros:
         factorial = 1
         for y in range(1, x + 1):
             factorial = factorial * y
-        print(str(x)+"! =", factorial)
+        print(str(x) + "! =", factorial)
 
 
-# tab_multiplicar(10) #1
-# impr_numeros() #2
-# temp_celsius() #3
-# ano_bisiesto(2020, True) #4
-# dias_mes(2, True) #5
-# data_valida(29, 2, 2020) #6
-# obter_iniciais("Universal", "Serial", "Bus") #7
-# filtro_consonantes("logaritmos") #8
-# ordear_palabras("kde", "gnome") #9
-# comprobar_orde(("cinnamon", "gnome", "kde")) #10
-# fichas_domino((2, 5), (7, 2)) #11
-# factoriais([7, 12, 6, 13, 9, 15, 8]) #12
+def comparar(lista_enteros: [], k: int):
+    lista_menores = []
+    lista_maiores = []
+    lista_iguais = []
+    for x in lista_enteros:
+        if x < k:
+            lista_menores.append(x)
+        elif x > k:
+            lista_maiores.append(x)
+        elif x == k:
+            lista_iguais.append(x)
+    print("Números menores ca " + str(k) + ":", lista_menores)
+    print("Números maiores ca " + str(k) + ":", lista_maiores)
+    print("Números iguais a " + str(k) + ":", lista_iguais)
+
+
+def aparicions(cadea: str, sort: bool):
+    num_aparicions = {}
+    lista_palabras = cadea.lower().split()
+    if sort:
+        lista_palabras = sorted(lista_palabras)
+    for x in lista_palabras:
+        if x not in num_aparicions:
+            num_aparicions[x] = 1
+        else:
+            num_aparicions[x] = num_aparicions[x] + 1
+    print(num_aparicions)
+
+
+def dados(i: int):
+    resultado = ""
+    for x in range(0, i):
+        for y in range(0, 2):
+            resultado = resultado + " " + str(random.randint(1, 6))
+    print(aparicions(resultado, True))
+
+
+# tab_multiplicar(10)  # 1
+# impr_numeros()  # 2
+# temp_celsius()  # 3
+# ano_bisiesto(2020, True)  # 4
+# dias_mes(2, True)  # 5
+# data_valida(29, 2, 2020)  # 6
+# obter_iniciais("Universal", "Serial", "Bus")  # 7
+# filtro_consonantes("logaritmos")  # 8
+# ordear_palabras("kde", "gnome")  # 9
+# comprobar_orde(("cinnamon", "gnome", "kde"))  # 10
+# fichas_domino((2, 5), (7, 2))  # 11
+# factoriais([7, 12, 6, 13, 9, 15, 8])  # 12
+# comparar([3, 12, 6, 8, 1, 16, 14, 34, 42, 2, 22], 14)  # 13
+# aparicions("Que lindo día que fai hoxe", False)  # 14
+# dados(100)  # 15
