@@ -143,6 +143,21 @@ def comprobar_orde(tupla):
         print("A tupla non está ordeada de menor a maior")
 
 
+def fichas_domino(ficha1, ficha2):
+    if ficha1[0] == ficha2[0] or ficha1[1] == ficha2[1] or ficha1[0] == ficha2[1] or ficha1[1] == ficha2[0]:
+        print("As fichas encaixan")
+    else:
+        print("As fichas non encaixan")
+
+
+def factoriais(lista_enteros):
+    for x in lista_enteros:
+        factorial = 1
+        for y in range(1, x + 1):
+            factorial = factorial * y
+        print(str(x)+"! =", factorial)
+
+
 # tab_multiplicar(10) #1
 # impr_numeros() #2
 # temp_celsius() #3
@@ -153,3 +168,5 @@ def comprobar_orde(tupla):
 # filtro_consonantes("logaritmos") #8
 # ordear_palabras("kde", "gnome") #9
 # comprobar_orde(("cinnamon", "gnome", "kde")) #10
+# fichas_domino((2, 5), (7, 2)) #11
+# factoriais([7, 12, 6, 13, 9, 15, 8]) #12
